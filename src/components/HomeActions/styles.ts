@@ -8,6 +8,9 @@ const styles = StyleSheet.create({
     padding: 30,
     alignItems: 'center',
   },
+  icon: {
+    fontSize: 30,
+  },
 });
 
 export default styles;

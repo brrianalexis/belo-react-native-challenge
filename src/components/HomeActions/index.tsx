@@ -16,21 +16,21 @@ const HomeActions: React.FC<HomeActionsProps> = () => {
         style={styles.action}
         onPress={() => Alert.alert('Not implemented')}
       >
-        <Text>↘️</Text>
+        <Text style={styles.icon}>↘️</Text>
         <Text>Receive</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.action}
         onPress={() => navigation.navigate('Swap')}
       >
-        <Text>🔁</Text>
+        <Text style={styles.icon}>🔁</Text>
         <Text>Swap</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.action}
         onPress={() => Alert.alert('Not implemented')}
       >
-        <Text>↗️</Text>
+        <Text style={styles.icon}>↗️</Text>
         <Text>Send</Text>
       </TouchableOpacity>
     </View>
