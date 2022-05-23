@@ -9,7 +9,9 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   currencyIcon: {
+    width: '10%',
     alignSelf: 'center',
+    textAlign: 'center',
     fontSize: 30,
   },
   currencyNames: {

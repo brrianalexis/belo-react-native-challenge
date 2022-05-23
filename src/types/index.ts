@@ -1,3 +1,11 @@
+import { DolarBlueRate, ExchangeRates } from './api.types';
 import { StackParams } from './navigation.types';
+import { CryptoNames, CryptoSymbols } from './coins.types';
 
-export type { StackParams };
+export type {
+  DolarBlueRate,
+  ExchangeRates,
+  CryptoNames,
+  CryptoSymbols,
+  StackParams,
+};

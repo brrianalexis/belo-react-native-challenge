@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
+import { formatCurrency } from '@coingecko/cryptoformat';
 import styles from './styles';
 
 type CurrencyCardProps = {
   icon: string;
-  currencyBalance: string;
+  currencyBalance: number;
+  currencyUsd: number;
   currencyName: string;
   currencySymbol: string;
 };
@@ -12,6 +14,7 @@ type CurrencyCardProps = {
 const CurrencyCard: React.FC<CurrencyCardProps> = ({
   icon,
   currencyBalance,
+  currencyUsd,
   currencyName,
   currencySymbol,
 }) => {
@@ -23,10 +26,8 @@ const CurrencyCard: React.FC<CurrencyCardProps> = ({
         <Text>{currencySymbol}</Text>
       </View>
       <View style={styles.currencyBalanceContainer}>
-        <Text>
-          {currencyBalance} {currencySymbol}
-        </Text>
-        <Text>$ {currencyBalance}</Text>
+        <Text>{formatCurrency(currencyBalance, currencySymbol)}</Text>
+        <Text>{formatCurrency(currencyUsd, 'USD')}</Text>
       </View>
     </View>
   );
