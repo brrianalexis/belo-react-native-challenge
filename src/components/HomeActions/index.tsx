@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
-import { Alert, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, Pressable, Text, View } from 'react-native';
 import { StackParams } from '../../types';
 import styles from './styles';
 
@@ -12,27 +12,27 @@ const HomeActions: React.FC<HomeActionsProps> = () => {
 
   return (
     <View style={styles.actions}>
-      <TouchableOpacity
+      <Pressable
         style={styles.action}
         onPress={() => Alert.alert('Not implemented')}
       >
         <Text style={styles.icon}>↘️</Text>
         <Text>Receive</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
+      </Pressable>
+      <Pressable
         style={styles.action}
         onPress={() => navigation.navigate('Swap')}
       >
         <Text style={styles.icon}>🔁</Text>
         <Text>Swap</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
+      </Pressable>
+      <Pressable
         style={styles.action}
         onPress={() => Alert.alert('Not implemented')}
       >
         <Text style={styles.icon}>↗️</Text>
         <Text>Send</Text>
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 };
