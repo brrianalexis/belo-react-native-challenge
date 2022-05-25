@@ -23,12 +23,33 @@ const App = () => {
             component={HomeScreen}
             options={{ headerShown: false }}
           />
-          <Stack.Screen name='Swap' component={SwapScreen} />
+          <Stack.Screen
+            name='Swap'
+            component={SwapScreen}
+            options={{
+              headerShown: true,
+              headerTransparent: true,
+              headerTitle: '',
+            }}
+          />
           <Stack.Screen
             name='SwapConfirmation'
             component={SwapConfirmationScreen}
+            options={{
+              headerShown: true,
+              headerTransparent: true,
+              headerTitle: '',
+            }}
           />
-          <Stack.Screen name='SwapStatus' component={SwapStatusScreen} />
+          <Stack.Screen
+            name='SwapStatus'
+            component={SwapStatusScreen}
+            options={{
+              headerShown: true,
+              headerTransparent: true,
+              headerTitle: '',
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
