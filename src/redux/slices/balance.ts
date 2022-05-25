@@ -1,18 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { convertCurrency } from '../../utils';
-
-type StateCurrency = {
-  icon: string;
-  symbol: string;
-  name: string;
-  local: number;
-  usd: number;
-};
-
-type BalanceState = {
-  total: number;
-  currencies: StateCurrency[];
-};
+import { BalanceState, StateCurrency } from '../../types';
 
 const initialState: BalanceState = {
   total: 3774,
@@ -67,7 +55,6 @@ export const balanceSlice = createSlice({
   initialState,
   reducers: {
     setBalance: (state, { payload }) => {
-      console.log('setBalance');
       const { currencies, rates, dolarRate } = payload;
 
       const updatedUsdInCurrencies: StateCurrency[] = currencies.map(
