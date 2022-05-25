@@ -1,11 +1,11 @@
 import {
-  CryptoNames,
-  CryptoSymbols,
+  CryptoName,
+  CryptoSymbol,
   DolarBlueRate,
   ExchangeRates,
 } from '../types';
 
-const mapSymbolToCurrency = {
+export const mapSymbolToCurrency = {
   ARS: 'peso',
   BTC: 'bitcoin',
   ETH: 'ethereum',
@@ -26,7 +26,7 @@ const convertCurrency = (
     convertedValue = value / +dolarRate.venta;
   } else {
     const { usd: rate } =
-      rates[<CryptoNames>mapSymbolToCurrency[<CryptoSymbols>base]];
+      rates[<CryptoName>mapSymbolToCurrency[<CryptoSymbol>base]];
 
     convertedValue = value * rate;
   }

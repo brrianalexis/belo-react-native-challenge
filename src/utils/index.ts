@@ -1,3 +1,3 @@
-import convertCurrency from './convertCurrency';
+import convertCurrency, { mapSymbolToCurrency } from './convertCurrency';
 
-export { convertCurrency };
+export { convertCurrency, mapSymbolToCurrency };
