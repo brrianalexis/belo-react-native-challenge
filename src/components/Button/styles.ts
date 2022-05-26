@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   fullWidth: {
-    width: '85%',
+    width: '100%',
   },
   fullWidthText: {
     fontSize: 30,
