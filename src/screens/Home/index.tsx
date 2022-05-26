@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Text, View } from 'react-native';
 import { HomeScreenProps } from '../../types';
 import { useAppDispatch, useApi, useBalance } from '../../hooks';
-import { setBalance } from '../../redux/slices';
+import { setBalance, setLastRates } from '../../redux/slices';
 import { CurrencyCard, HomeActions, HomeHeader } from '../../components';
 import styles from './styles';
 
@@ -26,10 +26,14 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
   React.useEffect(() => {
     if (exchangeRates !== undefined && dolarBlueRate !== undefined) {
       dispatch(
+        setLastRates({
+          exchangeRates,
+          dolarBlueRate,
+        }),
+      );
+      dispatch(
         setBalance({
           currencies: currencies,
-          rates: exchangeRates,
-          dolarRate: dolarBlueRate,
         }),
       );
     }

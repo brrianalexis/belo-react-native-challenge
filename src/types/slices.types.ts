@@ -1,3 +1,4 @@
+import { ExchangeRates } from './api.types';
 import { CurrencySymbol } from './currencies.types';
 
 export type StateCurrency = {
@@ -8,7 +9,20 @@ export type StateCurrency = {
   usd: number;
 };
 
+type DolarBlueRate = {
+  dolar: {
+    compra: string;
+    fecha: string;
+    venta: string;
+  };
+};
+
+type CryptoRates = {
+  crypto: ExchangeRates;
+};
+
 export type BalanceState = {
   total: number;
+  rates: CryptoRates & DolarBlueRate;
   currencies: StateCurrency[];
 };

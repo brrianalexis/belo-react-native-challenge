@@ -3,7 +3,31 @@ import { convertCurrency } from '../../utils';
 import { BalanceState, StateCurrency } from '../../types';
 
 const initialState: BalanceState = {
-  total: 3774,
+  total: 8600,
+  rates: {
+    dolar: {
+      compra: '205.00',
+      fecha: '2022/05/25 22:35:48',
+      venta: '208.00',
+    },
+    crypto: {
+      bitcoin: {
+        usd: 29771,
+      },
+      tether: {
+        usd: 0.999976,
+      },
+      ethereum: {
+        usd: 1962.95,
+      },
+      dai: {
+        usd: 1.001,
+      },
+      solana: {
+        usd: 48.59,
+      },
+    },
+  },
   currencies: [
     {
       icon: '🇦🇷',
@@ -55,7 +79,7 @@ export const balanceSlice = createSlice({
   initialState,
   reducers: {
     setBalance: (state, { payload }) => {
-      const { currencies, rates, dolarRate } = payload;
+      const { currencies } = payload;
 
       const updatedUsdInCurrencies: StateCurrency[] = currencies.map(
         (currency: StateCurrency) => {
@@ -64,8 +88,8 @@ export const balanceSlice = createSlice({
             usd: convertCurrency(
               currency.symbol,
               currency.local,
-              rates,
-              dolarRate,
+              state.rates.crypto,
+              state.rates.dolar,
             ),
           };
         },
@@ -78,9 +102,53 @@ export const balanceSlice = createSlice({
       state.currencies = updatedUsdInCurrencies;
       state.total = totalUsd;
     },
+    setLastRates: (state, { payload }) => {
+      const { exchangeRates, dolarBlueRate } = payload;
+      const newRates = {
+        crypto: {
+          ...exchangeRates,
+        },
+        dolar: {
+          ...dolarBlueRate,
+        },
+      };
+      state.rates = newRates;
+    },
+    setSwap: (state, { payload }) => {
+      const { from, fromAmount, to, toAmount } = payload;
+
+      const updatedCurrencies = state.currencies.map(currency => {
+        if (currency.symbol === from) {
+          const updatedLocalBalance = currency.local - fromAmount;
+          const modifiedCurrency = {
+            ...currency,
+            local: updatedLocalBalance,
+            usd: (updatedLocalBalance * currency.usd) / currency.local,
+          };
+          return modifiedCurrency;
+        } else if (currency.symbol === to) {
+          const updatedLocalBalance = currency.local + toAmount;
+          const modifiedCurrency = {
+            ...currency,
+            local: updatedLocalBalance,
+            usd: (updatedLocalBalance * currency.usd) / currency.local,
+          };
+          return modifiedCurrency;
+        } else {
+          return currency;
+        }
+      });
+
+      const updatedUsdBalance = updatedCurrencies
+        .map((currency: StateCurrency) => currency.usd)
+        .reduce((a, b) => a + b);
+
+      state.currencies = updatedCurrencies;
+      state.total = updatedUsdBalance;
+    },
   },
 });
 
-export const { setBalance } = balanceSlice.actions;
+export const { setBalance, setLastRates, setSwap } = balanceSlice.actions;
 
 export default balanceSlice.reducer;
