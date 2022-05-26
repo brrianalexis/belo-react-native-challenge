@@ -40,6 +40,9 @@ const styles = StyleSheet.create({
   alignRight: {
     textAlign: 'right',
   },
+  buttonContainer: {
+    width: '85%',
+  },
 });
 
 export default styles;

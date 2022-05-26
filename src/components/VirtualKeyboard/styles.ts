@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   keyboard: {
     width: '100%',
+    marginBottom: 60,
   },
   row: {
     flexDirection: 'row',

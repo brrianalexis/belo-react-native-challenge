@@ -198,7 +198,14 @@ const SwapScreen: React.FC<SwapScreenProps> = ({ navigation }) => {
         ) : null}
       </View>
       <VirtualKeyboard handleKeyPress={handleKeyboardPress} />
-      <Button fullWidth handlePress={validateSwap} type='primary' text='Next' />
+      <View style={styles.buttonContainer}>
+        <Button
+          fullWidth
+          handlePress={validateSwap}
+          type='primary'
+          text='Next'
+        />
+      </View>
     </View>
   );
 };
