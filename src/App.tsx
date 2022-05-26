@@ -45,9 +45,7 @@ const App = () => {
             name='SwapStatus'
             component={SwapStatusScreen}
             options={{
-              headerShown: true,
-              headerTransparent: true,
-              headerTitle: '',
+              headerShown: false,
             }}
           />
         </Stack.Navigator>

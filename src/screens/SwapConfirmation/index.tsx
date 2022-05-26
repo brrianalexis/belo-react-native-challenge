@@ -29,9 +29,21 @@ const SwapConfirmationScreen: React.FC<SwapConfirmationScreenProps> = ({
           toAmount: swapResult,
         }),
       );
-      navigation.navigate('SwapStatus', { status: 'Successful' });
+      navigation.navigate('SwapStatus', {
+        fromAmount: swapAmount,
+        fromCurrency,
+        status: 'Successful',
+        swapResult,
+        toCurrency,
+      });
     } else {
-      navigation.navigate('SwapStatus', { status: 'Failed' });
+      navigation.navigate('SwapStatus', {
+        fromAmount: swapAmount,
+        fromCurrency,
+        status: 'Failed',
+        swapResult,
+        toCurrency,
+      });
     }
   };
 

@@ -7,11 +7,17 @@ export type StackParams = {
   Swap: undefined;
   SwapConfirmation: {
     fromCurrency: StateCurrency;
+    swapAmount: number;
     swapResult: number;
     toCurrency: StateCurrency;
-    swapAmount: number;
   };
-  SwapStatus: undefined;
+  SwapStatus: {
+    fromAmount: number;
+    fromCurrency: StateCurrency;
+    status: 'Successful' | 'Failed';
+    swapResult: number;
+    toCurrency: StateCurrency;
+  };
 };
 
 export type HomeScreenProps = {
@@ -29,4 +35,5 @@ export type SwapConfirmationScreenProps = {
 
 export type SwapStatusScreenProps = {
   navigation: NativeStackNavigationProp<StackParams, 'SwapStatus'>;
+  route: RouteProp<StackParams, 'SwapStatus'>;
 };

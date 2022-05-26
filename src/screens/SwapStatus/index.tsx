@@ -1,19 +1,44 @@
 import * as React from 'react';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Button, Text, View } from 'react-native';
-import { StackParams } from '../../types';
+import { Alert, View } from 'react-native';
+import {
+  Button,
+  SwapStatusCard,
+  SwapStatusDisplay,
+  SwapStatusHeader,
+  TransactionId,
+} from '../../components';
+import { SwapStatusScreenProps } from '../../types';
+import styles from './styles';
 
-type SwapStatusScreenProps = {
-  navigation: NativeStackNavigationProp<StackParams, 'SwapStatus'>;
-};
+const SwapStatusScreen: React.FC<SwapStatusScreenProps> = ({
+  navigation,
+  route,
+}) => {
+  const { fromAmount, fromCurrency, status, toCurrency, swapResult } =
+    route.params;
 
-const SwapStatusScreen: React.FC<SwapStatusScreenProps> = ({ navigation }) => {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Swap Status Screen</Text>
+    <View style={styles.screen}>
+      <SwapStatusHeader />
+      <SwapStatusDisplay toIcon={toCurrency.icon} status={status} />
+      <SwapStatusCard
+        fromAmount={fromAmount}
+        fromCurrency={fromCurrency}
+        swapResult={swapResult}
+        toCurrency={toCurrency}
+      />
+      <TransactionId />
       <Button
-        title='Go to Home Screen'
-        onPress={() => navigation.navigate('Home')}
+        type='secondary'
+        fullWidth
+        text='FAQ'
+        handlePress={() => Alert.alert('Not implemented')}
+      />
+      <Button
+        type='primary'
+        fullWidth
+        text='Done'
+        handlePress={() => navigation.navigate('Home')}
       />
     </View>
   );
