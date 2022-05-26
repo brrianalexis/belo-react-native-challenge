@@ -4,7 +4,7 @@ import styles from './styles';
 
 type ButtonProps = {
   type: 'primary' | 'secondary';
-  fullWidth: boolean;
+  fullWidth?: boolean;
   text: string;
   handlePress: () => void;
 };
@@ -21,9 +21,16 @@ const Button: React.FC<ButtonProps> = ({
     ...(fullWidth && { ...styles.fullWidth }),
   };
 
+  const textStyles = {
+    ...styles.text,
+    ...(fullWidth && {
+      ...styles.fullWidthText,
+    }),
+  };
+
   return (
     <Pressable onPress={handlePress} style={buttonStyles}>
-      <Text style={styles.text}>{text}</Text>
+      <Text style={textStyles}>{text}</Text>
     </Pressable>
   );
 };

@@ -1,22 +1,61 @@
 import * as React from 'react';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Button, Text, View } from 'react-native';
-import { StackParams } from '../../types';
-
-type SwapConfirmationScreenProps = {
-  navigation: NativeStackNavigationProp<StackParams, 'SwapConfirmation'>;
-};
+import { View } from 'react-native';
+import { useAppDispatch } from '../../hooks';
+import { setSwap } from '../../redux/slices';
+import {
+  Button,
+  SwapConfirmationDetails,
+  SwapConfirmationHeader,
+} from '../../components';
+import { SwapConfirmationScreenProps } from '../../types';
+import styles from './styles';
 
 const SwapConfirmationScreen: React.FC<SwapConfirmationScreenProps> = ({
   navigation,
+  route,
 }) => {
+  const { swapAmount, swapResult, fromCurrency, toCurrency } = route.params;
+  const dispatch = useAppDispatch();
+
+  const handleConfirm = () => {
+    //?   simulate a failed swap by setting this to false
+    const swapWillSucceed = true;
+    if (swapWillSucceed) {
+      dispatch(
+        setSwap({
+          from: fromCurrency.symbol,
+          fromAmount: swapAmount,
+          to: toCurrency.symbol,
+          toAmount: swapResult,
+        }),
+      );
+      navigation.navigate('SwapStatus', { status: 'Successful' });
+    } else {
+      navigation.navigate('SwapStatus', { status: 'Failed' });
+    }
+  };
+
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Swap Confirmation Screen</Text>
-      <Button
-        title='Go to Swap Status Screen'
-        onPress={() => navigation.navigate('SwapStatus')}
+    <View style={styles.screen}>
+      <SwapConfirmationHeader
+        icon={toCurrency.icon}
+        symbol={toCurrency.symbol}
+        result={swapResult}
       />
+      <SwapConfirmationDetails
+        fromCurrency={fromCurrency}
+        swapAmount={swapAmount}
+        swapResult={swapResult}
+        toSymbol={toCurrency.symbol}
+      />
+      <View style={styles.actionsContainer}>
+        <Button
+          type='secondary'
+          text='Cancel'
+          handlePress={() => navigation.navigate('Swap')}
+        />
+        <Button type='primary' text='Confirm' handlePress={handleConfirm} />
+      </View>
     </View>
   );
 };
