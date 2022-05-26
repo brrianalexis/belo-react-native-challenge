@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@coingecko/cryptoformat": "^0.5.4",
+    "@react-native-clipboard/clipboard": "^1.10.0",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.2",
     "@reduxjs/toolkit": "^1.8.1",
