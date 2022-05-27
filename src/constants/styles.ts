@@ -8,7 +8,7 @@ const styles = {
   secondary: '#F39B52',
   pressedSecondary: '#F4A666',
   errorText: '#FF0000',
-  errorBackground: '#FDAEAE',
+  errorBackground: '#FED7D7',
   successText: '#3AA431',
   successBackground: '#B7D8AE',
   currency: {
