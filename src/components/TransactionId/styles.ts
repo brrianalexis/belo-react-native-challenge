@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
     marginLeft: 30,
   },
   copyButton: {
-    backgroundColor: constants.lighterBackground,
     padding: 10,
     borderRadius: 10,
     marginRight: 15,

@@ -18,8 +18,8 @@ const VirtualKeyboard: React.FC<VirtualKeyboardProps> = ({
             <Pressable
               key={button}
               style={({ pressed }) => [
+                styles.button,
                 {
-                  ...styles.button,
                   backgroundColor: pressed
                     ? constants.lighterBackground
                     : constants.background,
