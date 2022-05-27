@@ -23,15 +23,18 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   swapForCurrency: {
-    width: '85%',
+    width: '80%',
     flexDirection: 'row',
   },
-  swapForIcon: {
-    fontSize: 35,
+  icon: {
+    height: 35,
+    width: 35,
+    alignSelf: 'center',
   },
   swapForText: {
     alignSelf: 'center',
     fontSize: 18,
+    marginLeft: 6,
     fontWeight: 'bold',
   },
   exchangeRate: {

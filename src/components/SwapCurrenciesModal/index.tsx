@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Modal, Pressable, Text, View } from 'react-native';
+import { Image, Modal, Pressable, Text, View } from 'react-native';
 import { CurrencySymbol, StateCurrency } from '../../types';
 import styles from './styles';
 
@@ -50,9 +50,12 @@ const SwapCurrenciesModal: React.FC<SwapCurrenciesModalProps> = ({
               key={currency.symbol}
               onPress={() => handlePress(currency)}
             >
-              <Text style={{ ...styles.text, ...styles.selectItemIcon }}>
-                {currency.icon}
-              </Text>
+              <Image
+                style={styles.icon}
+                source={{
+                  uri: currency.icon,
+                }}
+              />
               <Text style={{ ...styles.text, ...styles.selectItemName }}>
                 {currency.name}
               </Text>

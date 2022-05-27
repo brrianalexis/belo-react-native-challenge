@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import { formatCurrency } from '@coingecko/cryptoformat';
-import styles from './styles';
 import { CurrencySymbol } from '../../types';
+import styles from './styles';
 
 type SwapConfirmationHeaderProps = {
   result: number;
@@ -22,7 +22,12 @@ const SwapConfirmationHeader: React.FC<SwapConfirmationHeaderProps> = ({
         You'll receive:
       </Text>
       <View style={styles.result}>
-        <Text style={{ ...styles.text, ...styles.resultIcon }}>{icon}</Text>
+        <Image
+          style={styles.icon}
+          source={{
+            uri: icon,
+          }}
+        />
         <Text style={{ ...styles.text, ...styles.resultText }}>
           {formatCurrency(result, symbol)}
         </Text>

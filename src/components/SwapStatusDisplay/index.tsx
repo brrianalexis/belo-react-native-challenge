@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import styles from './styles';
 
 type SwapStatusDisplayProps = {
@@ -24,14 +24,12 @@ const SwapStatusDisplay: React.FC<SwapStatusDisplayProps> = ({
 
   return (
     <View style={styles.display}>
-      <Text
-        style={{
-          ...styles.icon,
-          ...(status === 'Successful' ? styles.success : styles.failure),
+      <Image
+        style={styles.icon}
+        source={{
+          uri: toIcon,
         }}
-      >
-        {toIcon}
-      </Text>
+      />
       <Text
         style={{
           ...styles.status,

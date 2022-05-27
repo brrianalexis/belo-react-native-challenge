@@ -12,8 +12,9 @@ const styles = StyleSheet.create({
     color: constants.errorText,
   },
   icon: {
-    fontSize: 50,
-    textAlign: 'center',
+    height: 70,
+    width: 70,
+    alignSelf: 'center',
   },
   status: {
     fontSize: 30,

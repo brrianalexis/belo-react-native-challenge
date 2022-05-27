@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Image, Pressable, Text, View } from 'react-native';
 import {
   CryptoName,
   CryptoSymbol,
@@ -148,7 +148,10 @@ const SwapScreen: React.FC<SwapScreenProps> = ({ navigation }) => {
           style={styles.currency}
           onPress={() => setFromSelectorVisible(true)}
         >
-          <Text style={styles.icon}>{fromCurrency.icon}</Text>
+          <Image
+            style={{ ...styles.icon, ...styles.leftIcon }}
+            source={{ uri: fromCurrency.icon }}
+          />
           <View>
             <Text style={styles.text}>From</Text>
             <Text style={{ ...styles.text, ...styles.currencyName }}>
@@ -185,7 +188,10 @@ const SwapScreen: React.FC<SwapScreenProps> = ({ navigation }) => {
               {toCurrency.name}
             </Text>
           </View>
-          <Text style={styles.icon}>{toCurrency.icon}</Text>
+          <Image
+            style={{ ...styles.icon, ...styles.rightIcon }}
+            source={{ uri: toCurrency.icon }}
+          />
         </Pressable>
         {toSelectorVisible ? (
           <SwapCurrenciesModal

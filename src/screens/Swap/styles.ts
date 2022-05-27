@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   currencies: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: '85%',
+    width: '90%',
     margin: 30,
   },
   currency: {
@@ -30,11 +30,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   icon: {
-    color: constants.text,
-    fontSize: 28,
-    padding: 2,
-    width: '25%',
-    textAlign: 'center',
+    height: 30,
+    width: 30,
+  },
+  leftIcon: {
+    marginRight: 8,
+  },
+  rightIcon: {
+    marginLeft: 8,
   },
   swapIcon: {
     fontSize: 28,

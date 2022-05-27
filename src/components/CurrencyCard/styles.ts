@@ -9,21 +9,18 @@ const styles = StyleSheet.create({
     padding: 10,
     marginVertical: 5,
   },
-  currencyIcon: {
-    width: '10%',
-    alignSelf: 'center',
-    textAlign: 'center',
-    fontSize: 30,
+  text: {
     color: constants.text,
   },
-  currencySymbol: {
-    color: constants.text,
+  icon: {
+    height: 30,
+    width: 30,
+    alignSelf: 'center',
   },
   currencyNames: {
     width: '35%',
   },
   currencyFullName: {
-    color: constants.text,
     fontWeight: 'bold',
   },
   currencyBalanceContainer: {
@@ -31,9 +28,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignSelf: 'center',
     alignItems: 'flex-end',
-  },
-  balances: {
-    color: constants.text,
   },
 });
 

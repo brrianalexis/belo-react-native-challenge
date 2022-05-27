@@ -19,8 +19,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontSize: 20,
   },
-  resultIcon: {
-    fontSize: 40,
+  icon: {
+    height: 40,
+    width: 40,
+    alignSelf: 'center',
   },
   resultText: {
     fontSize: 25,

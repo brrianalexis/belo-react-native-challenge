@@ -26,10 +26,10 @@ const styles = StyleSheet.create({
   text: {
     color: constants.text,
   },
-  selectItemIcon: {
-    fontSize: 18,
-    width: '20%',
-    textAlign: 'center',
+  icon: {
+    height: 18,
+    width: 18,
+    alignSelf: 'center',
   },
   selectItemName: {
     fontSize: 18,

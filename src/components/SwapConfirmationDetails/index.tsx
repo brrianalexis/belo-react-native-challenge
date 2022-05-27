@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import { formatCurrency } from '@coingecko/cryptoformat';
-import styles from './styles';
 import { CurrencySymbol, StateCurrency } from '../../types';
+import styles from './styles';
 
 type SwapConfirmationDetailsProps = {
   fromCurrency: StateCurrency;
@@ -23,9 +23,12 @@ const SwapConfirmationDetails: React.FC<SwapConfirmationDetailsProps> = ({
         <Text style={{ ...styles.text, ...styles.swapForTitle }}>For:</Text>
         <View style={styles.swapForDetails}>
           <View style={styles.swapForCurrency}>
-            <Text style={{ ...styles.text, ...styles.swapForIcon }}>
-              {fromCurrency.icon}
-            </Text>
+            <Image
+              style={styles.icon}
+              source={{
+                uri: fromCurrency.icon,
+              }}
+            />
             <Text style={{ ...styles.text, ...styles.swapForText }}>
               {fromCurrency.name}
             </Text>
