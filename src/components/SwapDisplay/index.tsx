@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { CurrencySymbol, StateCurrency } from '../../types';
+import { styles as constants } from '../../constants';
 import styles from './styles';
 
 type SwapDisplayProps = {
@@ -10,6 +11,8 @@ type SwapDisplayProps = {
   swapAmount: string;
 };
 
+const { currency: currencyColor } = constants;
+
 const SwapDisplay: React.FC<SwapDisplayProps> = ({
   from,
   swapAmount,
@@ -18,7 +21,7 @@ const SwapDisplay: React.FC<SwapDisplayProps> = ({
 }) => {
   return (
     <View style={styles.swapContainer}>
-      <Text style={styles.swapAmount}>
+      <Text style={{ ...styles.swapAmount, color: currencyColor[from] }}>
         {from} {swapAmount}
       </Text>
       <Pressable

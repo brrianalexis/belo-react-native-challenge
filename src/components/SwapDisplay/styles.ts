@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   swapAmount: {
-    //TODO/NTH    y si hago que este color varíe de acuerdo a desde qué moneda estoy haciendo el swap?
     color: constants.primary,
     fontWeight: 'bold',
     fontSize: 35,
