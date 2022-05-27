@@ -1,11 +1,13 @@
 import { StyleSheet } from 'react-native';
+import { styles as constants } from '../../constants';
 
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-start',
-    marginTop: 50,
+    paddingTop: 50,
+    backgroundColor: constants.background,
   },
   currencies: {
     flexDirection: 'row',
@@ -18,6 +20,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  text: {
+    color: constants.text,
+  },
   currencyName: {
     fontWeight: 'bold',
   },
@@ -25,6 +30,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   icon: {
+    color: constants.text,
     fontSize: 28,
     padding: 2,
     width: '25%',

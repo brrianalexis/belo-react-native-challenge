@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Pressable, Text, View } from 'react-native';
-import { NUMERIC_KEYBOARD_BUTTONS } from '../../constants';
+import { NUMERIC_KEYBOARD_BUTTONS, styles as constants } from '../../constants';
 import styles from './styles';
 
 type VirtualKeyboardProps = {
@@ -17,7 +17,14 @@ const VirtualKeyboard: React.FC<VirtualKeyboardProps> = ({
           {row.map(button => (
             <Pressable
               key={button}
-              style={styles.button}
+              style={({ pressed }) => [
+                {
+                  ...styles.button,
+                  backgroundColor: pressed
+                    ? constants.lighterBackground
+                    : constants.background,
+                },
+              ]}
               onPress={() => {
                 handleKeyPress(button);
               }}

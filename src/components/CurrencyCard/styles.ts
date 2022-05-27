@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { styles as constants } from '../../constants';
 
 const styles = StyleSheet.create({
   currencyCard: {
@@ -13,11 +14,16 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     textAlign: 'center',
     fontSize: 30,
+    color: constants.text,
+  },
+  currencySymbol: {
+    color: constants.text,
   },
   currencyNames: {
     width: '35%',
   },
   currencyFullName: {
+    color: constants.text,
     fontWeight: 'bold',
   },
   currencyBalanceContainer: {
@@ -25,6 +31,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignSelf: 'center',
     alignItems: 'flex-end',
+  },
+  balances: {
+    color: constants.text,
   },
 });
 

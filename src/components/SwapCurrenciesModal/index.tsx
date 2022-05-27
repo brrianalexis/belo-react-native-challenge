@@ -50,8 +50,12 @@ const SwapCurrenciesModal: React.FC<SwapCurrenciesModalProps> = ({
               key={currency.symbol}
               onPress={() => handlePress(currency)}
             >
-              <Text style={styles.selectItemIcon}>{currency.icon}</Text>
-              <Text style={styles.selectItemName}>{currency.name}</Text>
+              <Text style={{ ...styles.text, ...styles.selectItemIcon }}>
+                {currency.icon}
+              </Text>
+              <Text style={{ ...styles.text, ...styles.selectItemName }}>
+                {currency.name}
+              </Text>
             </Pressable>
           ) : null,
         )}

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Provider } from 'react-redux';
+import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StackParams } from './types';
+import { Provider } from 'react-redux';
 import store from './redux/store';
 import {
   HomeScreen,
@@ -10,12 +10,15 @@ import {
   SwapConfirmationScreen,
   SwapStatusScreen,
 } from './screens';
+import { StackParams } from './types';
+import { styles as constants } from './constants';
 
 const Stack = createNativeStackNavigator<StackParams>();
 
 const App = () => {
   return (
     <Provider store={store}>
+      <StatusBar barStyle='light-content' />
       <NavigationContainer>
         <Stack.Navigator initialRouteName='Home'>
           <Stack.Screen
@@ -30,6 +33,7 @@ const App = () => {
               headerShown: true,
               headerTransparent: true,
               headerTitle: '',
+              headerTintColor: constants.text,
             }}
           />
           <Stack.Screen
@@ -39,6 +43,7 @@ const App = () => {
               headerShown: true,
               headerTransparent: true,
               headerTitle: '',
+              headerTintColor: constants.text,
             }}
           />
           <Stack.Screen

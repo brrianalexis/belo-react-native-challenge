@@ -24,9 +24,30 @@ const SwapStatusDisplay: React.FC<SwapStatusDisplayProps> = ({
 
   return (
     <View style={styles.display}>
-      <Text style={styles.icon}>{toIcon}</Text>
-      <Text style={styles.status}>{status} Swap</Text>
-      <Text style={styles.date}>{swapDateNoYear}</Text>
+      <Text
+        style={{
+          ...styles.icon,
+          ...(status === 'Successful' ? styles.success : styles.failure),
+        }}
+      >
+        {toIcon}
+      </Text>
+      <Text
+        style={{
+          ...styles.status,
+          ...(status === 'Successful' ? styles.success : styles.failure),
+        }}
+      >
+        {status} Swap
+      </Text>
+      <Text
+        style={{
+          ...styles.date,
+          ...(status === 'Successful' ? styles.success : styles.failure),
+        }}
+      >
+        {swapDateNoYear}
+      </Text>
     </View>
   );
 };

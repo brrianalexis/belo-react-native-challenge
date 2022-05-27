@@ -1,6 +1,10 @@
 import { StyleSheet } from 'react-native';
+import { styles as constants } from '../../constants';
 
 const styles = StyleSheet.create({
+  text: {
+    color: constants.text,
+  },
   title: {
     fontSize: 30,
     fontWeight: 'bold',

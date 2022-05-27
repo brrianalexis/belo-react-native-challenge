@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { styles as constants } from '../../constants';
 
 const styles = StyleSheet.create({
   transaction: {
@@ -7,19 +8,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     marginBottom: 130,
   },
+  text: {
+    color: constants.text,
+    fontSize: 18,
+  },
   id: {
     fontWeight: 'bold',
     alignSelf: 'center',
-    fontSize: 18,
+    marginLeft: 30,
   },
   copyButton: {
-    alignSelf: 'center',
-    backgroundColor: 'lightgrey',
+    backgroundColor: constants.lighterBackground,
     padding: 10,
-    borderRadius: 8,
-  },
-  copyText: {
-    fontSize: 18,
+    borderRadius: 10,
+    marginRight: 15,
   },
 });
 

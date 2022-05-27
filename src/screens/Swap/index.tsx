@@ -121,7 +121,7 @@ const SwapScreen: React.FC<SwapScreenProps> = ({ navigation }) => {
     } else {
       const totalPesos = swapFrom === 'ARS' ? +swapAmount : convertToPesos();
       if (totalPesos < 200) {
-        setError('Transaction amount must equal to at least ARS 200');
+        setError('Amount must be equal to at least ARS 200');
       } else {
         const swapResult = convertForSwap();
         navigation.navigate('SwapConfirmation', {
@@ -150,8 +150,10 @@ const SwapScreen: React.FC<SwapScreenProps> = ({ navigation }) => {
         >
           <Text style={styles.icon}>{fromCurrency.icon}</Text>
           <View>
-            <Text>From</Text>
-            <Text style={styles.currencyName}>{fromCurrency.name}</Text>
+            <Text style={styles.text}>From</Text>
+            <Text style={{ ...styles.text, ...styles.currencyName }}>
+              {fromCurrency.name}
+            </Text>
           </View>
         </Pressable>
         {fromSelectorVisible ? (
@@ -178,8 +180,10 @@ const SwapScreen: React.FC<SwapScreenProps> = ({ navigation }) => {
           onPress={() => setToSelectorVisible(true)}
         >
           <View>
-            <Text style={styles.alignRight}>To</Text>
-            <Text style={styles.currencyName}>{toCurrency.name}</Text>
+            <Text style={{ ...styles.text, ...styles.alignRight }}>To</Text>
+            <Text style={{ ...styles.text, ...styles.currencyName }}>
+              {toCurrency.name}
+            </Text>
           </View>
           <Text style={styles.icon}>{toCurrency.icon}</Text>
         </Pressable>
@@ -198,14 +202,7 @@ const SwapScreen: React.FC<SwapScreenProps> = ({ navigation }) => {
         ) : null}
       </View>
       <VirtualKeyboard handleKeyPress={handleKeyboardPress} />
-      <View style={styles.buttonContainer}>
-        <Button
-          fullWidth
-          handlePress={validateSwap}
-          type='primary'
-          text='Next'
-        />
-      </View>
+      <Button fullWidth handlePress={validateSwap} type='primary' text='Next' />
     </View>
   );
 };

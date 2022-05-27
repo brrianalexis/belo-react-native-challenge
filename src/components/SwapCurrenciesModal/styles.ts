@@ -1,10 +1,12 @@
 import { StyleSheet } from 'react-native';
+import { styles as constants } from '../../constants';
 
 const styles = StyleSheet.create({
   modalContent: {
-    backgroundColor: 'white',
+    backgroundColor: constants.lighterBackground,
     width: '47%',
     marginTop: 290,
+    borderRadius: 10,
   },
   from: {
     alignSelf: 'flex-start',
@@ -18,6 +20,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     padding: 6,
+    borderBottomColor: constants.background,
+    borderWidth: 0.25,
+  },
+  text: {
+    color: constants.text,
   },
   selectItemIcon: {
     fontSize: 18,

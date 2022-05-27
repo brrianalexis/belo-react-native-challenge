@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { formatCurrency } from '@coingecko/cryptoformat';
 import { StateCurrency } from '../../types';
 import styles from './styles';
@@ -16,7 +16,11 @@ const SwapHeader: React.FC<SwapHeaderProps> = ({ currency, error }) => {
       <Text style={styles.headerBalance}>
         {`${formatCurrency(currency.local, currency.symbol)} available`}
       </Text>
-      {error ? <Text style={styles.errorMessage}>{error}</Text> : null}
+      {error ? (
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorMessage}>{error}</Text>
+        </View>
+      ) : null}
     </>
   );
 };

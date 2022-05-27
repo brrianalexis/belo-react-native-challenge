@@ -17,11 +17,15 @@ const SwapConfirmationHeader: React.FC<SwapConfirmationHeaderProps> = ({
 }) => {
   return (
     <>
-      <Text style={styles.title}>Confirm your swap</Text>
-      <Text style={styles.subtitle}>You'll receive:</Text>
+      <Text style={{ ...styles.text, ...styles.title }}>Confirm your swap</Text>
+      <Text style={{ ...styles.text, ...styles.subtitle }}>
+        You'll receive:
+      </Text>
       <View style={styles.result}>
-        <Text style={styles.resultIcon}>{icon}</Text>
-        <Text style={styles.resultText}>{formatCurrency(result, symbol)}</Text>
+        <Text style={{ ...styles.text, ...styles.resultIcon }}>{icon}</Text>
+        <Text style={{ ...styles.text, ...styles.resultText }}>
+          {formatCurrency(result, symbol)}
+        </Text>
       </View>
     </>
   );

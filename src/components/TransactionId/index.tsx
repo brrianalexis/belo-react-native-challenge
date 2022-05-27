@@ -10,12 +10,12 @@ const TransactionId: React.FC<TransactionIdProps> = ({}) => {
 
   return (
     <View style={styles.transaction}>
-      <Text style={styles.id}>Transaction {txId}</Text>
+      <Text style={{ ...styles.id, ...styles.text }}>Transaction {txId}</Text>
       <Pressable
         style={styles.copyButton}
         onPress={() => Clipboard.setString(txId)}
       >
-        <Text style={styles.copyText}>Copy</Text>
+        <Text style={styles.text}>Copy</Text>
       </Pressable>
     </View>
   );

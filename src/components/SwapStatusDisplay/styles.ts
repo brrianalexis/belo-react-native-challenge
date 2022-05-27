@@ -1,8 +1,15 @@
 import { StyleSheet } from 'react-native';
+import { styles as constants } from '../../constants';
 
 const styles = StyleSheet.create({
   display: {
     marginBottom: 30,
+  },
+  success: {
+    color: constants.successText,
+  },
+  failure: {
+    color: constants.errorText,
   },
   icon: {
     fontSize: 50,
@@ -16,6 +23,7 @@ const styles = StyleSheet.create({
   date: {
     fontSize: 20,
     textAlign: 'center',
+    fontWeight: '500',
   },
 });
 

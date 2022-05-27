@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { styles as constants } from '../../constants';
 
 const styles = StyleSheet.create({
   swapContainer: {
@@ -7,7 +8,8 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   swapAmount: {
-    color: 'purple',
+    //TODO/NTH    y si hago que este color varíe de acuerdo a desde qué moneda estoy haciendo el swap?
+    color: constants.primary,
     fontWeight: 'bold',
     fontSize: 35,
     marginVertical: 20,
@@ -15,6 +17,8 @@ const styles = StyleSheet.create({
   },
   swapMaxText: {
     fontSize: 20,
+    color: constants.text,
+    fontWeight: '500',
   },
 });
 

@@ -20,20 +20,24 @@ const SwapConfirmationDetails: React.FC<SwapConfirmationDetailsProps> = ({
   return (
     <>
       <View style={styles.swapFor}>
-        <Text style={styles.swapForTitle}>For:</Text>
+        <Text style={{ ...styles.text, ...styles.swapForTitle }}>For:</Text>
         <View style={styles.swapForDetails}>
           <View style={styles.swapForCurrency}>
-            <Text style={styles.swapForIcon}>{fromCurrency.icon}</Text>
-            <Text style={styles.swapForText}>{fromCurrency.name}</Text>
+            <Text style={{ ...styles.text, ...styles.swapForIcon }}>
+              {fromCurrency.icon}
+            </Text>
+            <Text style={{ ...styles.text, ...styles.swapForText }}>
+              {fromCurrency.name}
+            </Text>
           </View>
-          <Text style={styles.swapForText}>
+          <Text style={{ ...styles.text, ...styles.swapForText }}>
             {formatCurrency(swapAmount, fromCurrency.symbol)}
           </Text>
         </View>
       </View>
       <View style={styles.exchangeRate}>
-        <Text style={styles.exchangeRateText}>Rate</Text>
-        <Text style={styles.exchangeRateText}>
+        <Text style={{ ...styles.text, ...styles.exchangeRateText }}>Rate</Text>
+        <Text style={{ ...styles.text, ...styles.exchangeRateValue }}>
           {`1 ${toSymbol} = ${formatCurrency(
             swapAmount / swapResult,
             fromCurrency.symbol,
@@ -41,8 +45,8 @@ const SwapConfirmationDetails: React.FC<SwapConfirmationDetailsProps> = ({
         </Text>
       </View>
       <View style={styles.exchangeRate}>
-        <Text style={styles.exchangeRateText}>Fee</Text>
-        <Text style={styles.exchangeRateText}>
+        <Text style={{ ...styles.text, ...styles.exchangeRateText }}>Fee</Text>
+        <Text style={{ ...styles.text, ...styles.exchangeRateValue }}>
           1% = {formatCurrency(swapAmount * 0.01, fromCurrency.symbol)}
         </Text>
       </View>

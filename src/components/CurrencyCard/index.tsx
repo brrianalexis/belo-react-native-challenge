@@ -25,11 +25,13 @@ const CurrencyCard: React.FC<CurrencyCardProps> = ({
       <Text style={styles.currencyIcon}>{icon}</Text>
       <View style={styles.currencyNames}>
         <Text style={styles.currencyFullName}>{currencyName}</Text>
-        <Text>{currencySymbol}</Text>
+        <Text style={styles.currencySymbol}>{currencySymbol}</Text>
       </View>
       <View style={styles.currencyBalanceContainer}>
-        <Text>{formatCurrency(currencyBalance, currencySymbol)}</Text>
-        <Text>
+        <Text style={styles.balances}>
+          {formatCurrency(currencyBalance, currencySymbol)}
+        </Text>
+        <Text style={styles.balances}>
           {loading ? 'Loading...' : formatCurrency(currencyUsd, 'USD')}
         </Text>
       </View>

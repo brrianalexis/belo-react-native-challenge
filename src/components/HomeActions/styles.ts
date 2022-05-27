@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { styles as constants } from '../../constants';
 
 const styles = StyleSheet.create({
   actions: {
@@ -10,6 +11,10 @@ const styles = StyleSheet.create({
   },
   icon: {
     fontSize: 30,
+  },
+  text: {
+    color: constants.text,
+    fontSize: 18,
   },
 });
 

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { styles as constants } from '../../constants';
 
 const styles = StyleSheet.create({
   button: {
@@ -12,17 +13,20 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
+  buttonContainer: {
+    width: '85%',
+  },
   fullWidth: {
-    width: '100%',
+    width: 300,
   },
   fullWidthText: {
     fontSize: 30,
   },
   primary: {
-    backgroundColor: 'skyblue',
+    backgroundColor: constants.primary,
   },
   secondary: {
-    backgroundColor: 'lightblue',
+    backgroundColor: constants.secondary,
   },
 });
 

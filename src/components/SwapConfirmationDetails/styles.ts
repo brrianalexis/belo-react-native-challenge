@@ -1,9 +1,16 @@
 import { StyleSheet } from 'react-native';
+import { styles as constants } from '../../constants';
 
 const styles = StyleSheet.create({
+  text: {
+    color: constants.text,
+  },
+  container: {
+    width: '85%',
+  },
   swapFor: {
-    width: '100%',
-    alignSelf: 'flex-start',
+    width: '85%',
+    alignSelf: 'center',
     marginVertical: 20,
   },
   swapForTitle: {
@@ -11,11 +18,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   swapForDetails: {
+    width: '85%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
   },
   swapForCurrency: {
+    width: '85%',
     flexDirection: 'row',
   },
   swapForIcon: {
@@ -27,12 +35,19 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   exchangeRate: {
-    width: '100%',
+    width: '85%',
+    marginHorizontal: 50,
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginVertical: 20,
   },
+  exchangeRateValue: {
+    fontSize: 18,
+    width: '65%',
+    textAlign: 'right',
+  },
   exchangeRateText: {
+    width: '35%',
     fontSize: 18,
   },
 });

@@ -1,15 +1,16 @@
 import { StyleSheet } from 'react-native';
+import { styles as constants } from '../../constants';
 
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
     alignItems: 'center',
     alignSelf: 'center',
-    width: '85%',
-    marginTop: 60,
+    paddingTop: 60,
+    backgroundColor: constants.background,
   },
   actionsContainer: {
-    width: '100%',
+    width: '85%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 280,

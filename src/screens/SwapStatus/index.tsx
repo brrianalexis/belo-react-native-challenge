@@ -26,6 +26,7 @@ const SwapStatusScreen: React.FC<SwapStatusScreenProps> = ({
         fromCurrency={fromCurrency}
         swapResult={swapResult}
         toCurrency={toCurrency}
+        status={status}
       />
       <TransactionId />
       <Button
