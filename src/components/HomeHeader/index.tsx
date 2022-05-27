@@ -6,13 +6,16 @@ import styles from './styles';
 
 type HomeHeaderProps = {
   balance: BalanceState;
+  loading: boolean;
 };
 
-const HomeHeader: React.FC<HomeHeaderProps> = ({ balance }) => {
+const HomeHeader: React.FC<HomeHeaderProps> = ({ balance, loading }) => {
   return (
     <View style={styles.header}>
       <Text style={styles.title}>Not Belo</Text>
-      <Text style={styles.balance}>{formatCurrency(balance.total, 'USD')}</Text>
+      <Text style={styles.balance}>
+        {loading ? 'Loading...' : formatCurrency(balance.total, 'USD')}
+      </Text>
     </View>
   );
 };

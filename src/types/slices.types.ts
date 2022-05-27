@@ -23,6 +23,7 @@ type CryptoRates = {
 
 export type BalanceState = {
   total: number;
+  loading: boolean;
   rates: CryptoRates & DolarBlueRate;
   currencies: StateCurrency[];
 };

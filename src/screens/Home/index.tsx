@@ -10,18 +10,10 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
   const dispatch = useAppDispatch();
   const { useGetExchangeRatesQuery, useGetDolarBlueRateQuery } = useApi();
   const { balance } = useBalance();
-  const { currencies } = balance;
+  const { currencies, loading } = balance;
 
-  const {
-    data: exchangeRates,
-    // error: exchangeRatesError,
-    // isLoading: exchangeRatesLoading,
-  } = useGetExchangeRatesQuery();
-  const {
-    data: dolarBlueRate,
-    // error: dolarBlueError,
-    // isLoading: dolarBlueLoading,
-  } = useGetDolarBlueRateQuery();
+  const { data: exchangeRates } = useGetExchangeRatesQuery();
+  const { data: dolarBlueRate } = useGetDolarBlueRateQuery();
 
   React.useEffect(() => {
     if (exchangeRates !== undefined && dolarBlueRate !== undefined) {
@@ -33,17 +25,16 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
       );
       dispatch(
         setBalance({
-          currencies: currencies,
+          currencies,
         }),
       );
     }
     //  eslint-disable-next-line react-hooks/exhaustive-deps
   }, [exchangeRates, dolarBlueRate]);
 
-  //TODO    implementar loaders
   return (
     <View style={styles.screen}>
-      <HomeHeader balance={balance} />
+      <HomeHeader balance={balance} loading={loading} />
       <HomeActions />
       <Text style={styles.currenciesTitle}>Currencies</Text>
       {currencies.map(currency => (
@@ -54,6 +45,7 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
           currencyBalance={currency.local}
           currencyUsd={currency.usd}
           currencySymbol={currency.symbol}
+          loading={loading}
         />
       ))}
     </View>

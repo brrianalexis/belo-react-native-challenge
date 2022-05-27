@@ -4,6 +4,7 @@ import { BalanceState, StateCurrency } from '../../types';
 
 const initialState: BalanceState = {
   total: 8600,
+  loading: true,
   rates: {
     dolar: {
       compra: '205.00',
@@ -101,6 +102,7 @@ export const balanceSlice = createSlice({
 
       state.currencies = updatedUsdInCurrencies;
       state.total = totalUsd;
+      state.loading = false;
     },
     setLastRates: (state, { payload }) => {
       const { exchangeRates, dolarBlueRate } = payload;

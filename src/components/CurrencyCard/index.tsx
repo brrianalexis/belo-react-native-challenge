@@ -5,6 +5,7 @@ import styles from './styles';
 
 type CurrencyCardProps = {
   icon: string;
+  loading: boolean;
   currencyBalance: number;
   currencyUsd: number;
   currencyName: string;
@@ -13,6 +14,7 @@ type CurrencyCardProps = {
 
 const CurrencyCard: React.FC<CurrencyCardProps> = ({
   icon,
+  loading,
   currencyBalance,
   currencyUsd,
   currencyName,
@@ -27,7 +29,9 @@ const CurrencyCard: React.FC<CurrencyCardProps> = ({
       </View>
       <View style={styles.currencyBalanceContainer}>
         <Text>{formatCurrency(currencyBalance, currencySymbol)}</Text>
-        <Text>{formatCurrency(currencyUsd, 'USD')}</Text>
+        <Text>
+          {loading ? 'Loading...' : formatCurrency(currencyUsd, 'USD')}
+        </Text>
       </View>
     </View>
   );
