@@ -15,6 +15,7 @@ const HomeActions: React.FC<HomeActionsProps> = () => {
       <Pressable
         style={styles.action}
         onPress={() => Alert.alert('Not implemented')}
+        testID='action-receive'
       >
         <Text style={styles.icon}>↘️</Text>
         <Text style={styles.text}>Receive</Text>
@@ -22,6 +23,7 @@ const HomeActions: React.FC<HomeActionsProps> = () => {
       <Pressable
         style={styles.action}
         onPress={() => navigation.navigate('Swap')}
+        testID='action-swap'
       >
         <Text style={styles.icon}>🔁</Text>
         <Text style={styles.text}>Swap</Text>
@@ -29,6 +31,7 @@ const HomeActions: React.FC<HomeActionsProps> = () => {
       <Pressable
         style={styles.action}
         onPress={() => Alert.alert('Not implemented')}
+        testID='action-send'
       >
         <Text style={styles.icon}>↗️</Text>
         <Text style={styles.text}>Send</Text>

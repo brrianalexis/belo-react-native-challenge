@@ -71,6 +71,11 @@ const SwapScreen: React.FC<SwapScreenProps> = ({ navigation }) => {
     }
   };
 
+  const handleKeyboardLongPress = (): void => {
+    setError(null);
+    setSwapAmount('0');
+  };
+
   const handleCurrenciesInvert = (): void => {
     setSwapAmount('0');
     setSwapFrom(swapTo);
@@ -88,7 +93,7 @@ const SwapScreen: React.FC<SwapScreenProps> = ({ navigation }) => {
     return convertedToPesos;
   };
 
-  const convertForSwap = () => {
+  const convertForSwap = (): number => {
     let converted: number;
     const swapMinusFee = +swapAmount * 0.99;
     const fromAsUsd = convertCurrency(
@@ -147,6 +152,7 @@ const SwapScreen: React.FC<SwapScreenProps> = ({ navigation }) => {
         <Pressable
           style={styles.currency}
           onPress={() => setFromSelectorVisible(true)}
+          testID='from-currency-selector'
         >
           <Image
             style={{ ...styles.icon, ...styles.leftIcon }}
@@ -154,7 +160,10 @@ const SwapScreen: React.FC<SwapScreenProps> = ({ navigation }) => {
           />
           <View>
             <Text style={styles.text}>From</Text>
-            <Text style={{ ...styles.text, ...styles.currencyName }}>
+            <Text
+              style={{ ...styles.text, ...styles.currencyName }}
+              testID='from-currency-name'
+            >
               {fromCurrency.name}
             </Text>
           </View>
@@ -175,16 +184,21 @@ const SwapScreen: React.FC<SwapScreenProps> = ({ navigation }) => {
         <Pressable
           style={styles.iconContainer}
           onPress={handleCurrenciesInvert}
+          testID='invert-currencies'
         >
           <Text style={styles.swapIcon}>🔁</Text>
         </Pressable>
         <Pressable
           style={{ ...styles.currency, ...styles.currencyTo }}
           onPress={() => setToSelectorVisible(true)}
+          testID='to-currency-selector'
         >
           <View>
             <Text style={{ ...styles.text, ...styles.alignRight }}>To</Text>
-            <Text style={{ ...styles.text, ...styles.currencyName }}>
+            <Text
+              style={{ ...styles.text, ...styles.currencyName }}
+              testID='to-currency-name'
+            >
               {toCurrency.name}
             </Text>
           </View>
@@ -207,7 +221,10 @@ const SwapScreen: React.FC<SwapScreenProps> = ({ navigation }) => {
           />
         ) : null}
       </View>
-      <VirtualKeyboard handleKeyPress={handleKeyboardPress} />
+      <VirtualKeyboard
+        handleKeyPress={handleKeyboardPress}
+        handleLongKeyPress={handleKeyboardLongPress}
+      />
       <Button fullWidth handlePress={validateSwap} type='primary' text='Next' />
     </View>
   );

@@ -5,10 +5,12 @@ import styles from './styles';
 
 type VirtualKeyboardProps = {
   handleKeyPress: (button: string | number) => void;
+  handleLongKeyPress: () => void;
 };
 
 const VirtualKeyboard: React.FC<VirtualKeyboardProps> = ({
   handleKeyPress,
+  handleLongKeyPress,
 }) => {
   return (
     <View style={styles.keyboard}>
@@ -28,6 +30,8 @@ const VirtualKeyboard: React.FC<VirtualKeyboardProps> = ({
               onPress={() => {
                 handleKeyPress(button);
               }}
+              onLongPress={button === '<' ? handleLongKeyPress : undefined}
+              testID={`keyboard-button-${button}`}
             >
               <Text style={styles.key}>{button}</Text>
             </Pressable>

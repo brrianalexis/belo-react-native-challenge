@@ -41,6 +41,7 @@ const SwapCurrenciesModal: React.FC<SwapCurrenciesModalProps> = ({
       visible={visible}
       transparent
       onRequestClose={() => setVisible(false)}
+      testID={`${swapPosition}-currency-modal`}
     >
       <View style={{ ...styles.modalContent, ...styles[swapPosition] }}>
         {currencies.map(currency =>
@@ -49,6 +50,7 @@ const SwapCurrenciesModal: React.FC<SwapCurrenciesModalProps> = ({
               style={styles.selectItem}
               key={currency.symbol}
               onPress={() => handlePress(currency)}
+              testID={`${swapPosition}-currency-item-${currency.symbol}`}
             >
               <Image
                 style={styles.icon}
