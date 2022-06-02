@@ -13,6 +13,7 @@ module.exports = {
         'jsx-quotes': 'off',
         'react-hooks/exhaustive-deps': 'off',
       },
+      ignorePatterns: ['/e2e/*.js'],
     },
   ],
 };
