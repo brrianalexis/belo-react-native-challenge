@@ -35,6 +35,7 @@ const SwapStatusDisplay: React.FC<SwapStatusDisplayProps> = ({
           ...styles.status,
           ...(status === 'Successful' ? styles.success : styles.failure),
         }}
+        testID='swap-status'
       >
         {status} Swap
       </Text>

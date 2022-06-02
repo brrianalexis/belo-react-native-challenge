@@ -12,13 +12,17 @@ type SwapHeaderProps = {
 const SwapHeader: React.FC<SwapHeaderProps> = ({ currency, error }) => {
   return (
     <>
-      <Text style={styles.headerTitle}>Convert {currency.name}</Text>
-      <Text style={styles.headerBalance}>
+      <Text style={styles.headerTitle} testID='currency-to-convert'>
+        Convert {currency.name}
+      </Text>
+      <Text style={styles.headerBalance} testID='currency-available'>
         {`${formatCurrency(currency.local, currency.symbol)} available`}
       </Text>
       {error ? (
         <View style={styles.errorContainer}>
-          <Text style={styles.errorMessage}>{error}</Text>
+          <Text style={styles.errorMessage} testID='swap-error'>
+            {error}
+          </Text>
         </View>
       ) : null}
     </>

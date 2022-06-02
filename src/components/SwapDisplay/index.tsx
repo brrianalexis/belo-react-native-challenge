@@ -21,7 +21,10 @@ const SwapDisplay: React.FC<SwapDisplayProps> = ({
 }) => {
   return (
     <View style={styles.swapContainer}>
-      <Text style={{ ...styles.swapAmount, color: currencyColor[from] }}>
+      <Text
+        style={{ ...styles.swapAmount, color: currencyColor[from] }}
+        testID='swap-amount'
+      >
         {from} {swapAmount}
       </Text>
       <Pressable
