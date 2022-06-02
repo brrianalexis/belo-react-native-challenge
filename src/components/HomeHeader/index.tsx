@@ -13,7 +13,7 @@ const HomeHeader: React.FC<HomeHeaderProps> = ({ balance, loading }) => {
   return (
     <View style={styles.header}>
       <Text style={styles.title}>Not Belo</Text>
-      <Text style={styles.balance}>
+      <Text style={styles.balance} testID='total-balance'>
         {loading ? 'Loading...' : formatCurrency(balance.total, 'USD')}
       </Text>
     </View>

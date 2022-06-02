@@ -35,7 +35,7 @@ const CurrencyCard: React.FC<CurrencyCardProps> = ({
         <Text style={styles.text}>{currencySymbol}</Text>
       </View>
       <View style={styles.currencyBalanceContainer}>
-        <Text style={styles.text}>
+        <Text style={styles.text} testID={`${currencySymbol}-balance`}>
           {formatCurrency(currencyBalance, currencySymbol)}
         </Text>
         <Text style={styles.text}>
