@@ -17,6 +17,9 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
   const { data: dolarBlueRate } = useGetDolarBlueRateQuery();
 
   React.useEffect(() => {
+    console.log('💥');
+    console.log(exchangeRates);
+    console.log(dolarBlueRate);
     if (exchangeRates !== undefined && dolarBlueRate !== undefined) {
       dispatch(
         setLastRates({
